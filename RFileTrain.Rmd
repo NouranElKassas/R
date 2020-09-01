@@ -1,0 +1,250 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
+
+```{r}
+plot(cars)
+```
+
+Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Ctrl+Alt+I*.
+
+When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Ctrl+Shift+K* to preview the HTML file).
+
+The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
+
+My first Hello world of R
+
+```{r}
+# Print Hello World.
+print("Hello World")
+# Add two numbers.
+print(23.9 + 11.6)
+
+```
+add 3D Charts
+
+```{r}
+install("plotrix")
+```
+Start New Lines of code
+```{r}
+myString <- "Hello, World!"
+print ( myString)
+
+```
+
+To Run this code from terminal Rscript test.R"
+
+A trick to print multi lines
+```{r}
+if(FALSE){
+ "This is a demo for multi-line comments and it should be put
+ inside either a single of double quote"
+}
+myString <- "Hello, World!"
+print ( myString)
+
+```
+
+Detect Data type
+
+```{r}
+v <- TRUE
+print(v)
+print(class(v))
+print("")
+v <- 23.5
+print(v)
+print(class(v))
+print("")
+v <- 2L
+print(v)
+print(class(v))
+print("")
+v <- 2+5i
+print(v)
+print(class(v))
+print("")
+v <- "TRUE"
+print(v)
+print(class(v))
+print("")
+v <- charToRaw("Hello")
+print(v)
+print(class(v))
+
+
+```
+Data structures
+* Vector
+* List
+* Matrices
+* Arrays
+* Factors
+* Data Frames
+```{r}
+print("")
+# Create a vector.
+apple <- c('red','green',"yellow")
+print(apple)
+# Get the class of the vector.
+print(class(apple))
+print("")
+# Create a list.
+list1 <- list(c(2,5,3),21.3,sin)
+# Print the list.
+print(class(list1))
+print(list1)
+print("")
+# Create a matrix.
+M = matrix( c('a','a','b','c','b','a'), nrow=2,ncol=3,byrow = TRUE)
+print(class(M))
+print(M)
+print("")
+# Create an array.
+a <- array(c('green','yellow'),dim=c(3,3,2))
+print(class(a))
+print(a)
+print("")
+# Create a vector.
+apple_colors <- c('green','green','yellow','red','red','red','green')
+# Create a factor object.
+factor_apple <- factor(apple_colors)
+# Print the factor.
+print(class(factor_apple))
+print(factor_apple)
+print(nlevels(factor_apple))
+print("")
+# Create the data frame.
+BMI <- data.frame(
+gender = c("Male", "Male","Female"),
+height = c(152, 171.5, 165),
+weight = c(81,93, 78),
+Age =c(42,38,26)
+)
+print(class(BMI))
+print(BMI)
+print("")
+```
+Variable Assignment
+* Assignment using equal operator.
+* Assignment using leftward operator.
+* Assignment using rightward operator.
+```{r}
+# Assignment using equal operator.
+var.1 = c(0,1,2,3)
+# Assignment using leftward operator.
+var.2 <- c("learn","R")
+# Assignment using rightward operator.
+c(TRUE,1) -> var.3 
+
+print(var.1)
+cat ("var.1 is ", var.1 ,"\n")
+cat ("var.2 is ", var.2 ,"\n")
+cat ("var.3 is ", var.3 ,"\n")
+```
+Data Type of a Variable
+```{r}
+var_x <- "Hello"
+cat("The class of var_x is ",class(var_x),"\n")
+var_x <- 34.5
+cat("Now the class of var_x is ",class(var_x),"\n")
+var_x <- 27L
+cat("Next the class of var_x becomes ",class(var_x),"\n")
+```
+Finding Variables
+* traditional way
+* List the variables starting with the pattern "var".
+* get hidden variable
+```{r}
+print(ls())
+# List the variables starting with the pattern "var".
+print(ls(pattern="var")) 
+#get hidden variable
+print(ls(all.name=TRUE))
+
+```
+Deleting Variables
+* Delete a specific variable
+* Delete a list of variables
+```{r}
+#Delete a specific variable
+rm(var.3)
+print(var.3)
+#Delete a list of variables
+rm(list=ls())
+print(ls())
+```
+R – Operators
+. +
+. -
+. *
+. /
+. %
+. %/%
+. ^
+```{r}
+v <- c( 2,5.5,6)
+t <- c(8, 3, 4)
+cat("Adding vector ",v,"+",t,"\n")
+print(v+t)
+
+cat("Subtracting vector ",v,"-",t,"\n")
+print(v-t)
+
+cat("Multiplying vector ",v,"*",t,"\n")
+print(v*t)
+
+cat("Dividing vector ",v,"/",t,"\n")
+print(v/t)
+
+cat("Remender vector ",v,"/",t,"\n")
+print(v%%t)
+
+cat("The result of division of first vector with second (quotient)" ,v,"%/%",t,"\n")
+print(v%/%t)
+
+cat("The first vector raised to the exponent of second vector" ,v,"^",t,"\n")
+print(v^t)
+
+```
+Relational Operators
+. <
+. >
+. ==
+. >=
+. <=
+. !=
+```{r}
+cat("v is less than t" ,v,"<",t," ",print(v<t),"\n")
+cat("v is greater than t" ,v,">",t,print(v>t),"\n")
+cat("v is equal to t" ,v,"<",t," ",print(v==t),"\n")
+cat("v is less than or equal t" ,v,"<",t," ",print(v<=t),"\n")
+cat("v is greater than or equal t" ,v,">",t,print(v>=t),"\n")
+cat("v is not equal to t" ,v,"<",t," ",print(v!=t),"\n")
+
+```
+Logical Operators
+. &
+. |
+. !
+. &&
+. ||
+```{r}
+# and Operation
+v <- c(3,1,TRUE,2+3i)
+t <- c(4,1,FALSE,2+3i)
+print(v&t)
+# Or operation
+print(v|t)
+# not operation
+print(!v)
+print(v&&t)
+print(v||t)
+
+```
